@@ -1,0 +1,77 @@
+body
+{
+    text-align: center;
+    background-color: papayawhip;
+}
+header{
+    padding-top:50px;
+    padding-bottom:40px;
+    text-align: center;
+    background-color: powderblue;
+    background-size: cover;
+}
+h1{
+    font-size: 60px;
+    margin: 0 auto;
+    color: darkmagenta;
+}
+
+
+
+button[name="logout"]{
+    background-color: tan;
+    border-color: black;
+    margin: 10px;
+}
+
+button[name="register"]{
+    margin: 10px;
+}
+
+button[id="calculate"]{
+    margin-bottom: 20px;
+    width: 120px;
+    height: 50px;
+    border-color: black;
+    border-width: medium;
+    background-color: green;
+    color:white;
+    font-size: 20px;
+}
+
+.finalBox{
+    position: absolute;
+    top: 130px;
+    right: 100px;
+    background-color: greenyellow;
+    padding: 20px;
+    text-align: center;
+}
+h3{
+    margin: 0 auto;
+}
+h4{
+    margin-top:10px;
+}
+
+h5{
+    font-size: 20px;
+    margin: 0 auto;
+}
+
+table, th, td
+{
+    text-align: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 15px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th
+{
+    background: orange;
+}
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+      <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link href="/static/styles.css" rel="stylesheet">
+
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+        <title>Project: {% block title %}{% endblock %}</title>
+    </head>
+    <body>
+      <header>
+        <h1>GradeCalculator</h1>
+        <h2>Find current grade or desired grade</h2>
+        {% if session.user_id %}
+       <form action="/logout">
+          <button name="logout" type="submit" class="btn btn-light">Logout</button>
+        </form>
+        <form action="/choice">
+          <button class="btn btn-primary" name="choice" value="calc_current" type="submit">Calculate Grade</button>
+          <button class="btn btn-info" name="choice" value="find_needed" type="submit">Find Grade Needed</button>
+        </form>
+        {% endif %}
+        </header>
+        {% block main %}{% endblock %}
+    </body>
+
+</html>

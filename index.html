@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    index
+{% endblock %}
+
+{% block main %}
+{% if (choice == 1) %}
+<div class="finalBox">
+    <h3>Your Grade</h3>
+    <h4>{{ result }}</h4>
+</div>
+    <form action="/update_cat" method="post">
+        <input autocomplete="off" autofocus name="new_cat" placeholder="Category" type="text">
+        <input autocomplete="off" autofocus name="percent" placeholder="Percent" type="number" step="any">
+        <button name= "update" value="add" type="submit">Add</button>
+        <button name= "update" value="remove" type="submit">Remove</button>
+    </form>
+    <form action="/update_grade" method="post">
+        <select name="grade_category" >
+            <option disabled selected value="">Category</option>
+            {% for category in category_info %}
+            <option value="{{ category['category'] }}">{{ category["category"] }}  ({{ category["percent"] }}%)</option>
+            {% endfor %}
+        </select>
+            <input autocomplete="off" autofocus name="points" placeholder="Points" type="number" step="any">
+            <input autocomplete="off" autofocus name="total" placeholder="Total" type="number" step="any">
+            <button name= "update" value="add" type="submit">Add</button>
+            <button name= "update" value="remove" type="submit">Remove</button>
+    </form>
+{% elif (choice == 2) %}
+<form action="/needed" method="post">
+        <select name="grade_category" >
+            <option disabled selected value="">Category</option>
+            {% for category in category_info %}
+            <option value="{{ category['category'] }}">{{ category["category"] }} ({{ category["percent"] }}%)</option>
+            {% endfor %}
+        </select>
+        <input autocomplete="off" autofocus name="total" placeholder="Total Points" type="number" step="any">
+        <input autocomplete="off" autofocus name="desired" placeholder="Desired Final Grade" type="number" step="any">
+        <button type="calculate">Calculate</button>
+</form>
+{% else %}
+<div class="finalBox">
+    <h3>Desired Grade</h3>
+    <h4>{{ desired }}</h4>
+    <h4>Need {{ needed }} out of {{ total_add }} on {{ category }}</h4>
+</div>
+{% endif %}
+<table>
+        <tr>
+            <th>Category (%)</th>
+            <th>Points Earned</th>
+            <th>Total</th>
+        </tr>
+        {% for grade in gradebook %}
+            <tr>
+                <td>{{ grade["category"] }} ({{ grade["percent"] }}%)</td>
+                <td>{{ grade["points"] }}</td>
+                <td>{{ grade["total"] }}</td>
+            </tr>
+        {% endfor%}
+    </table>
+{% endblock %}
